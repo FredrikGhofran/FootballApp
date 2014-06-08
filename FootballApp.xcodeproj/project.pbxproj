@@ -23,6 +23,8 @@
 		45B461F619410E8800674C56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45B461F419410E8800674C56 /* InfoPlist.strings */; };
 		45B461F819410E8800674C56 /* FootballAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B461F719410E8800674C56 /* FootballAppTests.m */; };
 		45B4624A19449C8300674C56 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B4624919449C8300674C56 /* MainVC.m */; };
+		45B462531944E6C000674C56 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B462521944E6C000674C56 /* VideoTableViewCell.m */; };
+		45B462561944E9A500674C56 /* SpainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B462551944E9A500674C56 /* SpainTableViewController.m */; };
 		E01D8BF351D44BFA9EEF70F5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB87037C5F814F169CBD452E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,10 @@
 		45B461F719410E8800674C56 /* FootballAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FootballAppTests.m; sourceTree = "<group>"; };
 		45B4624819449C8300674C56 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		45B4624919449C8300674C56 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		45B462511944E6C000674C56 /* VideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
+		45B462521944E6C000674C56 /* VideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
+		45B462541944E9A500674C56 /* SpainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpainTableViewController.h; sourceTree = "<group>"; };
+		45B462551944E9A500674C56 /* SpainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpainTableViewController.m; sourceTree = "<group>"; };
 		70F7EFCF0B294AC6B631EAAB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AB87037C5F814F169CBD452E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +132,10 @@
 				45B461D819410E8800674C56 /* AppDelegate.h */,
 				45B461D919410E8800674C56 /* AppDelegate.m */,
 				45B461DB19410E8800674C56 /* Main_iPhone.storyboard */,
+				45B462541944E9A500674C56 /* SpainTableViewController.h */,
+				45B462551944E9A500674C56 /* SpainTableViewController.m */,
+				45B462511944E6C000674C56 /* VideoTableViewCell.h */,
+				45B462521944E6C000674C56 /* VideoTableViewCell.m */,
 				45B4624819449C8300674C56 /* MainVC.h */,
 				45B4624919449C8300674C56 /* MainVC.m */,
 				45B461DE19410E8800674C56 /* Main_iPad.storyboard */,
@@ -299,10 +309,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B462531944E6C000674C56 /* VideoTableViewCell.m in Sources */,
 				45B461E319410E8800674C56 /* ViewController.m in Sources */,
 				45B4624A19449C8300674C56 /* MainVC.m in Sources */,
 				45B461DA19410E8800674C56 /* AppDelegate.m in Sources */,
 				45B461D619410E8800674C56 /* main.m in Sources */,
+				45B462561944E9A500674C56 /* SpainTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
