@@ -30,7 +30,7 @@
     [super viewDidLoad];
     
     self.titles = @[@"Real Madrid - Atletico Madrid"];
-    self.videos =@[@"http://fredrikghofran.com/football/football.html"];
+    self.videos =@[@"99M68P0xMAA"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +58,11 @@
 {
     VideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.titleText.text = self.titles[indexPath.row];
-    [cell.webbView loadRequest:[self makeVieo:self.videos[indexPath.row]]];
+//    [cell.webbView loadRequest:[self makeVieo:self.videos[indexPath.row]]];
+    
+    NSString *html = [NSString stringWithFormat:@"<object><param name=\"movie\" value=\"http://www.youtube.com/v/%@\"></param><embed src=\"http://www.youtube.com/v/%@\" type=\"application/x-shockwave-flash\"></embed></object>",self.videos[indexPath.row], self.videos[indexPath.row]];
+    
+    [cell.webbView loadHTMLString:html baseURL:nil];
     
     // Configure the cell...
     
