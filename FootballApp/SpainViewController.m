@@ -30,9 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titles = @[@"Real Madrid - Atletico Madrid",@"Real Madrid - Atletico Madrid",@"Real Madrid - Atletico Madrid",@"Real Madrid - Atletico Madrid"];
-    self.videos =@[@"99M68P0xMAA",@"99M68P0xMAA",@"99M68P0xMAA",@"99M68P0xMAA"];
-    self.descriptions = @[@"adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas adasdas" ,@"Real Madrid is Winning",@"Real Madrid is Winning",@"Real Madrid is Winning"];
+    self.titles = @[@"Uruguay - Costa Rica",@"Chile - Australien",@"Spanien - Holland",@"Mexico - Kamerun",@"Brasilien - Kroatien"];
+    self.videos =@[@"l5VPRJ27Z74",@"Gv6sEfNBnSk",@"RKpFqOTIjW8",@"G2tKqDp8RSo",@"3O9NPBYxd-Q"];
+    self.descriptions = @[@"Costa Rica vinner och vänder ett 1-0 underläge till 1-3. Stor skräll från Costa Rica",@"Chile vinner säkert över Australien med 3-1",@"Holland vinner förvånansvärt stort över de regerande världsmästarna Spanien med 5-1, och kunde även gjort ett par till om de hade varit vassare i sina lägen.",@"Mexico vinner matchen enkelt med 1-0 även fast de får två mål bortdömda.",@"Brasilien vinner matchen med 3-1 efter två tveksamma beslut av dommaren. Kroatioen fick en tveksam straff dömd mot sig och ett bortdömt mål."];
 }
 
 - (void)didReceiveMemoryWarning
