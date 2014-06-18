@@ -57,6 +57,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     VideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
     cell.titleText.text = self.titles[indexPath.row];
 //    [cell.webbView loadRequest:[self makeVieo:self.videos[indexPath.row]]];
     

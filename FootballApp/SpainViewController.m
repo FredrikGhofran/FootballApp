@@ -8,12 +8,15 @@
 
 #import "SpainViewController.h"
 #import "MyCollectionViewCell.h"
+#import <AVFoundation/AVPlayer.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface SpainViewController ()
 @property(nonatomic)NSMutableArray *titles;
 @property(nonatomic)NSMutableArray *videos;
 @property(nonatomic)NSMutableArray *descriptions;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @end
 
@@ -50,19 +53,13 @@
         {
         
             NSDictionary *dic = jsonArray[i];
-            NSLog(@"1");
-            NSLog(@"DIC = %@",dic);
+        
             [self.videos addObject:dic[@"videoText"]];
-            NSLog(@"2");
             [self.titles addObject:dic[@"title"]];
-            NSLog(@"3");
+            
             [self.descriptions addObject:dic[@"description"]];
-            NSLog(@"4");
-            NSLog(@"DESCTIPTION = %@",self.descriptions[i]);
-            NSLog(@"5");
             dispatch_async(dispatch_get_main_queue(),^{
                 [self.collectionView reloadData];
-                NSLog(@"6");
             });
         
         }
@@ -100,27 +97,15 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    // Prepare for animation
-    
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    
+    [cell setNotification];
+    cell.titleLabel.text = self.titles[indexPath.row];
+    cell.url =[NSURL URLWithString:self.videos[indexPath.row]];
 
-    
-        cell.titleLabel.text =self.titles[indexPath.row];
-
-        
-
-        NSString *html = [NSString stringWithFormat:@"<object><param name=\"movie\" value=\"http://www.youtube.com/v/%@\"></param><embed src=\"http://www.youtube.com/v/%@\" type=\"application/x-shockwave-flash\"></embed></object>",self.videos[indexPath.row], self.videos[indexPath.row]];
-        
-        
-        [cell.webView loadHTMLString:html baseURL:nil];
+    cell.description.text = self.descriptions[indexPath.row];
+    cell.description.editable = NO;
     
     
-        cell.description.text = self.descriptions[indexPath.row];
-        cell.description.editable = NO;
-    
-  
     //[cell.description setUserInteractionEnabled:NO];
     return cell;
 }
