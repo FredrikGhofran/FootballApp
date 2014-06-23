@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVPlayer.h>
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface MoviePlayerListener : NSObject
-
+@interface MoviePlayerListener : NSObject<MPPlayableContentDelegate>
+-(void)playerChange;
 @end

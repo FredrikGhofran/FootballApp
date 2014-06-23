@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		45B1D10C195259230089CBAB /* MoviePlayerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1D10B195259230089CBAB /* MoviePlayerListener.m */; };
+		4526FC6519585C32007F7933 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4526FC6419585C32007F7933 /* VideoPlayerViewController.m */; };
 		45B461CA19410E8800674C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B461C919410E8800674C56 /* Foundation.framework */; };
 		45B461CC19410E8800674C56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B461CB19410E8800674C56 /* CoreGraphics.framework */; };
 		45B461CE19410E8800674C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B461CD19410E8800674C56 /* UIKit.framework */; };
@@ -42,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		45B1D10A195259230089CBAB /* MoviePlayerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayerListener.h; sourceTree = "<group>"; };
-		45B1D10B195259230089CBAB /* MoviePlayerListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayerListener.m; sourceTree = "<group>"; };
+		4526FC6319585C32007F7933 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		4526FC6419585C32007F7933 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		45B461C619410E8800674C56 /* FootballApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B461C919410E8800674C56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45B461CB19410E8800674C56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,11 +141,11 @@
 				45B461D819410E8800674C56 /* AppDelegate.h */,
 				45B461D919410E8800674C56 /* AppDelegate.m */,
 				45B461DB19410E8800674C56 /* Main_iPhone.storyboard */,
+				4526FC6319585C32007F7933 /* VideoPlayerViewController.h */,
+				4526FC6419585C32007F7933 /* VideoPlayerViewController.m */,
 				45B46274194A918600674C56 /* SpainViewController.h */,
 				45B46275194A918600674C56 /* SpainViewController.m */,
 				45B46268194A88A000674C56 /* MyCollectionViewCell.h */,
-				45B1D10A195259230089CBAB /* MoviePlayerListener.h */,
-				45B1D10B195259230089CBAB /* MoviePlayerListener.m */,
 				45B46269194A88A000674C56 /* MyCollectionViewCell.m */,
 				45B462541944E9A500674C56 /* SpainTableViewController.h */,
 				45B462551944E9A500674C56 /* SpainTableViewController.m */,
@@ -330,7 +330,7 @@
 				45B461E319410E8800674C56 /* ViewController.m in Sources */,
 				45B4624A19449C8300674C56 /* MainVC.m in Sources */,
 				45B461DA19410E8800674C56 /* AppDelegate.m in Sources */,
-				45B1D10C195259230089CBAB /* MoviePlayerListener.m in Sources */,
+				4526FC6519585C32007F7933 /* VideoPlayerViewController.m in Sources */,
 				45B461D619410E8800674C56 /* main.m in Sources */,
 				45B462561944E9A500674C56 /* SpainTableViewController.m in Sources */,
 			);

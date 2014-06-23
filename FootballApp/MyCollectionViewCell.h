@@ -17,5 +17,6 @@
 @property(nonatomic)NSURL *url;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UITextView *description;
+
 -(void)setNotification;
 @end

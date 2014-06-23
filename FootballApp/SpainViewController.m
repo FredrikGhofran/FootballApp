@@ -10,13 +10,13 @@
 #import "MyCollectionViewCell.h"
 #import <AVFoundation/AVPlayer.h>
 #import <MediaPlayer/MediaPlayer.h>
-
+#import "VideoPlayerViewController.h"
 @interface SpainViewController ()
 @property(nonatomic)NSMutableArray *titles;
 @property(nonatomic)NSMutableArray *videos;
 @property(nonatomic)NSMutableArray *descriptions;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -105,8 +105,15 @@
     cell.description.text = self.descriptions[indexPath.row];
     cell.description.editable = NO;
     
+    if(cell.moviePlayer) {
+        cell.moviePlayer.currentPlaybackTime = -1;
+        [cell.moviePlayer stop];
+    }
+    
+    cell.moviePlayer = nil;
     
     //[cell.description setUserInteractionEnabled:NO];
+    
     return cell;
 }
 - (CGFloat)textViewHeightForAttributedText:(NSAttributedString *)text andWidth:(CGFloat)width
@@ -116,5 +123,13 @@
     CGSize size = [textView sizeThatFits:CGSizeMake(width, FLT_MAX)];
     return size.height;
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    VideoPlayerViewController *videoPlayerViewController = [segue destinationViewController];
+    MyCollectionViewCell *cell = sender;
+    
+    videoPlayerViewController.url = cell.url;
+    
 
+}
 @end

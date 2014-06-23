@@ -9,5 +9,8 @@
 #import "MoviePlayerListener.h"
 
 @implementation MoviePlayerListener
-
+-(void)playerChange
+{
+    NSLog(@"test");
+}
 @end

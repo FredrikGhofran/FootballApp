@@ -32,6 +32,7 @@
 }
 
 -(void)dealloc {
+    [self.moviePlayer stop];
     NSLog(@"Unregistering listener: %@", self.titleLabel.text);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -53,13 +54,13 @@
         [self.playButton setTitle:@"" forState:UIControlStateNormal];
     }else{
         NSLog(@"Stop %@",self.titleLabel.text);
-
         [self.playButton setTitle:@"▶" forState:UIControlStateNormal];
 
     }
 
 }
 - (IBAction)startPlayer:(id)sender {
+
     if(!self.moviePlayer || !self.url){
         
         MPMoviePlayerController *player =[[MPMoviePlayerController alloc] initWithContentURL:self.url];
@@ -69,20 +70,21 @@
         [self.moviePlayer.view setFrame: self
          .myView.bounds];  // player's frame must match parent's
         [self.myView addSubview:self.moviePlayer.view];
+        [self.playButton setTitle:@"" forState:UIControlStateNormal];
         
     }else{
         if(self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
         {
             
             [self.moviePlayer pause];
-            
-            self.playButton.titleLabel.text =@"";
+            NSLog(@"PAUSE");
+            [self.playButton setTitle:@"▶" forState:UIControlStateNormal];
 
         }else{
 
             [self.moviePlayer play];
             
-            self.playButton.titleLabel.text =@"▶";
+            [self.playButton setTitle:@"" forState:UIControlStateNormal];
 
         }
     
