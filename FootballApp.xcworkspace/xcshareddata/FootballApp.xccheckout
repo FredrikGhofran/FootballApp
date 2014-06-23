@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>13F0410B-934D-4039-A8AD-B3D80866F958</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FootballApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BA2BE4DD-92B1-462F-87F9-68A276A0D755</key>
+		<string>https://github.com/FredrikGhofran/FootballApp</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FootballApp.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BA2BE4DD-92B1-462F-87F9-68A276A0D755</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/FredrikGhofran/FootballApp</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BA2BE4DD-92B1-462F-87F9-68A276A0D755</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA2BE4DD-92B1-462F-87F9-68A276A0D755</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FootballApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
