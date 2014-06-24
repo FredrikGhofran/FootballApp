@@ -11,12 +11,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface MyCollectionViewCell : UICollectionViewCell<MPPlayableContentDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *imageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIView *myView;
-@property(nonatomic,strong)MPMoviePlayerController *moviePlayer;
 @property(nonatomic)NSURL *url;
-@property (weak, nonatomic) IBOutlet UIButton *playButton;
-@property (weak, nonatomic) IBOutlet UITextView *description;
-
--(void)setNotification;
+@property(nonatomic)NSString *description;
 @end

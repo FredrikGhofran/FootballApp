@@ -10,6 +10,7 @@
 #import <AVFoundation/AVPlayer.h>
 #import <MediaPlayer/MediaPlayer.h>
 @interface VideoPlayerViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *descriptionLabel;
 
 @end
 
@@ -27,8 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.descriptionLabel.text = self.description;
+    self.descriptionLabel.editable = NO;
+    
     self.moviePlayer =[[MPMoviePlayerController alloc] initWithContentURL:self.url];
-
     [self.moviePlayer prepareToPlay];
     [self.moviePlayer.view setFrame: self
      .myView.bounds];  // player's frame must match parent's

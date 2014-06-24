@@ -7,7 +7,7 @@
 //
 
 #import "MainVC.h"
-
+#import "SpainViewController.h"
 @interface MainVC ()
 
 @end
@@ -26,9 +26,12 @@
     switch (indexPath.row) {
         case 0:
             identifier = @"firstSegue";
+            [SpainViewController setVideosUrl:@"http://fredrikghofran.com/football/getAllVideos.php"];
             break;
         case 1:
             identifier = @"secondSegue";
+            [SpainViewController setVideosUrl:@""];
+
             break;
 
             
@@ -60,5 +63,6 @@
     return YES;
     
 }
+
 
 @end

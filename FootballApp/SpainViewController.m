@@ -14,6 +14,7 @@
 @interface SpainViewController ()
 @property(nonatomic)NSMutableArray *titles;
 @property(nonatomic)NSMutableArray *videos;
+@property(nonatomic)NSMutableArray *images;
 @property(nonatomic)NSMutableArray *descriptions;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -30,15 +31,17 @@
     }
     return self;
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.titles = [[NSMutableArray alloc]init];
     self.videos = [[NSMutableArray alloc]init];
+    self.images = [[NSMutableArray alloc]init];
     self.descriptions = [[NSMutableArray alloc]init];
-    NSString *urlString = @"http://fredrikghofran.com/football/getAllVideos.php";
+    NSString *urlString = [SpainViewController videosUrl];
     
-    
+    NSLog(@"URL = %@",urlString);
     NSURL *URL = [NSURL URLWithString:urlString];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -51,12 +54,13 @@
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
         for(int i = 0;i<jsonArray.count;i++)
         {
-        
+          
             NSDictionary *dic = jsonArray[i];
         
             [self.videos addObject:dic[@"videoText"]];
             [self.titles addObject:dic[@"title"]];
-            
+            [self.images addObject:dic[@"image"]];
+    
             [self.descriptions addObject:dic[@"description"]];
             dispatch_async(dispatch_get_main_queue(),^{
                 [self.collectionView reloadData];
@@ -98,38 +102,41 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    [cell setNotification];
     cell.titleLabel.text = self.titles[indexPath.row];
     cell.url =[NSURL URLWithString:self.videos[indexPath.row]];
+    cell.description = self.descriptions[indexPath.row];
+    if(!cell.imageLabel.image){
+    NSData *data = [NSData dataWithContentsOfURL : [NSURL URLWithString:self.images[indexPath.row]]];
 
-    cell.description.text = self.descriptions[indexPath.row];
-    cell.description.editable = NO;
-    
-    if(cell.moviePlayer) {
-        cell.moviePlayer.currentPlaybackTime = -1;
-        [cell.moviePlayer stop];
+    UIImage *image = [UIImage imageWithData: data];
+        
+    [cell.imageLabel setImage:image];
     }
-    
-    cell.moviePlayer = nil;
-    
-    //[cell.description setUserInteractionEnabled:NO];
-    
+
     return cell;
 }
-- (CGFloat)textViewHeightForAttributedText:(NSAttributedString *)text andWidth:(CGFloat)width
-{
-    UITextView *textView = [[UITextView alloc] init];
-    [textView setAttributedText:text];
-    CGSize size = [textView sizeThatFits:CGSizeMake(width, FLT_MAX)];
-    return size.height;
-}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     VideoPlayerViewController *videoPlayerViewController = [segue destinationViewController];
     MyCollectionViewCell *cell = sender;
-    
+    videoPlayerViewController.description = cell.description;
     videoPlayerViewController.url = cell.url;
     
+}
+static  NSString* _videosUrl;
 
++ (NSString *)videosUrl
+{
+    if(!_videosUrl){
+        NSLog(@"sätter ny");
+        _videosUrl = @"http://fredrikghofran.com/football/getAllVideos.php";
+        
+          }
+    return _videosUrl;
+}
+
++ (void) setVideosUrl:(NSString *)videosUrl{
+    _videosUrl = videosUrl;
 }
 @end

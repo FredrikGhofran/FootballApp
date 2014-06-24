@@ -13,5 +13,6 @@
 @property(nonatomic)NSURL *url;
 @property(nonatomic,strong)MPMoviePlayerController *moviePlayer;
 @property (weak, nonatomic) IBOutlet UIView *myView;
+@property(nonatomic)NSString *description;
 
 @end

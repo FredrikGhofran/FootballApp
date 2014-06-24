@@ -9,5 +9,6 @@
 #import "ViewController.h"
 
 @interface SpainViewController : ViewController
-
++ (NSString *) videosUrl;
++ (void) setVideosUrl:(NSString *)videosUrl;
 @end
