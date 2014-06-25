@@ -12,7 +12,8 @@
 
 @interface MyCollectionViewCell : UICollectionViewCell<MPPlayableContentDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *titleLabel;
+
 @property(nonatomic)NSURL *url;
 @property(nonatomic)NSString *description;
 @end

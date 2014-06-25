@@ -41,12 +41,20 @@
     [self.moviePlayer play];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
 
+    if([self.navigationController.viewControllers indexOfObject:self] ==NSNotFound){
+        NSLog(@"stop");
+        [self.moviePlayer stop];
+    }
+}
 /*
 #pragma mark - Navigation
 

@@ -11,4 +11,6 @@
 @interface SpainViewController : ViewController
 + (NSString *) videosUrl;
 + (void) setVideosUrl:(NSString *)videosUrl;
++ (void) setCurrentTitle:(NSString *)currentTitle;
++ (NSString *)currentTitle;
 @end

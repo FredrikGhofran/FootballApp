@@ -16,13 +16,45 @@
 @property(nonatomic)NSMutableArray *videos;
 @property(nonatomic)NSMutableArray *images;
 @property(nonatomic)NSMutableArray *descriptions;
+@property(nonatomic,strong)MPMoviePlayerController *moviePlayer;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation SpainViewController
+////////////////////////////////////
+static  NSString* _videosUrl;
+static  NSString* _currentTitle;
++ (NSString *)videosUrl
+{
+    if(!_videosUrl){
+        NSLog(@"sätter ny");
+        _videosUrl = @"http://fredrikghofran.com/football/getAllVideos.php";
+    }
+    return _videosUrl;
+}
 
++ (void) setVideosUrl:(NSString *)videosUrl{
+    _videosUrl = videosUrl;
+}
+
++ (NSString *)currentTitle
+{
+    if(!_currentTitle){
+        NSLog(@"sätter ny");
+        _currentTitle = @"Latest upload";
+        
+    }
+    return _currentTitle;
+}
+
++ (void) setCurrentTitle:(NSString *)currentTitle{
+    _currentTitle = currentTitle;
+}
+///////////////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,6 +67,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title =[SpainViewController currentTitle];
+    [self.spinner startAnimating];
     self.titles = [[NSMutableArray alloc]init];
     self.videos = [[NSMutableArray alloc]init];
     self.images = [[NSMutableArray alloc]init];
@@ -64,14 +98,21 @@
             [self.descriptions addObject:dic[@"description"]];
             dispatch_async(dispatch_get_main_queue(),^{
                 [self.collectionView reloadData];
+                if (self.videos.count>20) {
+                    [self.spinner stopAnimating];
+                    self.spinner.hidesWhenStopped = YES;
+                }
             });
         
         }
+        dispatch_async(dispatch_get_main_queue(),^{
+            [self.spinner stopAnimating];
+            self.spinner.hidesWhenStopped = YES;
+        });
   
     }];
-
-    
     [task resume];
+ 
 //    self.titles = @[@"Uruguay - Costa Rica",@"Chile - Australien",@"Spanien - Holland",@"Mexico - Kamerun",@"Brasilien - Kroatien"];
 //    self.videos =@[@"qNoPy7CxvZc",@"Gv6sEfNBnSk",@"yXTFG97E4yY",@"G2tKqDp8RSo",@"dA2CuJUq8-Q"];
 //    self.descriptions = @[@"Costa Rica vinner och vänder ett 1-0 underläge till 1-3. Stor skräll från Costa Rica",@"Chile vinner säkert över Australien med 3-1",@"Holland vinner förvånansvärt stort över de regerande världsmästarna Spanien med 5-1, och kunde även gjort ett par till om de hade varit vassare i sina lägen.",@"Mexico vinner matchen enkelt med 1-0 även fast de får två mål bortdömda.",@"Brasilien vinner matchen med 3-1 efter två tveksamma beslut av dommaren. Kroatioen fick en tveksam straff dömd mot sig och ett bortdömt mål."];
@@ -103,6 +144,9 @@
 {
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.titleLabel.text = self.titles[indexPath.row];
+    cell.titleLabel.editable = NO;
+    cell.titleLabel.scrollEnabled = NO;
+    
     cell.url =[NSURL URLWithString:self.videos[indexPath.row]];
     cell.description = self.descriptions[indexPath.row];
     if(!cell.imageLabel.image){
@@ -123,20 +167,7 @@
     videoPlayerViewController.description = cell.description;
     videoPlayerViewController.url = cell.url;
     
-}
-static  NSString* _videosUrl;
-
-+ (NSString *)videosUrl
-{
-    if(!_videosUrl){
-        NSLog(@"sätter ny");
-        _videosUrl = @"http://fredrikghofran.com/football/getAllVideos.php";
-        
-          }
-    return _videosUrl;
+    
 }
 
-+ (void) setVideosUrl:(NSString *)videosUrl{
-    _videosUrl = videosUrl;
-}
 @end

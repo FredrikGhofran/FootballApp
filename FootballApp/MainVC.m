@@ -27,16 +27,16 @@
         case 0:
             identifier = @"firstSegue";
             [SpainViewController setVideosUrl:@"http://fredrikghofran.com/football/getAllVideos.php"];
+            [SpainViewController setCurrentTitle:@"VM 2014"];
             break;
         case 1:
             identifier = @"secondSegue";
             [SpainViewController setVideosUrl:@""];
-
+            [SpainViewController setCurrentTitle:@"Test"];
             break;
 
             
     }
-    
     return identifier;
 }
 -(void)configureLeftMenuButton:(UIButton *)button
